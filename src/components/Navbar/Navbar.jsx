@@ -1,15 +1,18 @@
 import CartWidget from '../CartWidget/CartWidget'
-
+import { Link, useNavigate } from 'react-router-dom'
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
 
     return (
         <header className="bg-gray-900 text-white py-4">
             <div className="container mx-auto flex justify-between items-center">
-                <h4 className="text-red-500 text-lg md:text-xl lg:text-2xl italic">CyberWolf Electronics</h4>
+                <h1 onClick={() => navigate('/')} className="text-red-500 text-lg md:text-xl lg:text-2xl italic hover:cursor-pointer">CyberWolf Electronics</h1>
                 <nav className='flex justify-evenly items-center -ml-32'>
-                    <a className="text-lg mx-4 md:mx-5" href="#">Celulares</a>
-                    <a className="text-lg mx-4 md:mx-5" href="#">Tablets</a>
-                    <a className="text-lg mx-4 md:mx-5" href="#">Notebooks</a>
+                    <Link to="/category/celulares" className="text-lg mx-4 md:mx-5">Celulares</Link>
+                    <Link to="/category/tablets" className="text-lg mx-4 md:mx-5">Tablets</Link>
+                    <Link to="/category/notebooks" className="text-lg mx-4 md:mx-5">Notebooks</Link>
                 </nav>
                 <CartWidget />
             </div>

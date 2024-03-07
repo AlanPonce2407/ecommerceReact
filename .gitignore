@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+Mercadolibre
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
