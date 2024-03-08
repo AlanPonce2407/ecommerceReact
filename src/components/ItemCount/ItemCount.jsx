@@ -1,28 +1,49 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const ItemCount = ({ initialValue = 1, stock, onAdd}) => {
-    const [count, setCount] = useState(initialValue)
-    
-    const decrement = () => {
-        if(count > 1) {
-            setCount(count => count - 1)
-        }
+const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
+  const [count, setCount] = useState(initialValue);
+
+  const decrement = () => {
+    if (count > initialValue) {
+      setCount(count - 1);
     }
-    
-    const increment = () => {
-        if(count < stock) {
-            setCount(prev => prev + 1)
-        }
+  };
+
+  const increment = () => {
+    if (count < stock) {
+      setCount(count + 1);
     }
+  };
 
-    return (
-        <div>
-            <h1>{count}</h1>
-            <button onClick={decrement}>Decrementar</button>
-            <button onClick={() => onAdd(count)}>Agregar al carrito</button>
-            <button onClick={increment}>Incrementar</button>
-        </div>
-    )
-}
+  const handleAddToCart = () => {
+    if (count > 0) {
+      onAdd(count);
+    }
+  };
 
-export default ItemCount
+  return (
+    <div className="inline-flex mx-auto">
+      <button
+        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mx-2"
+        onClick={decrement}
+      >
+        -
+      </button>
+      <span className="py-2">{count}</span>
+      <button
+        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mx-2"
+        onClick={increment}
+      >
+        +
+      </button>
+      <button
+        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded ml-2"
+        onClick={handleAddToCart}
+      >
+        <span>Agregar al carrito</span>
+      </button>
+    </div>
+  );
+};
+
+export default ItemCount;
