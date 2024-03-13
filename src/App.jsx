@@ -1,28 +1,30 @@
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import CartWidget from './components/CartWidget/CartWidget';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 const App = () => {
-  const [cartItems, setCartItems] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (count) => {
-    setCartItems(prevCartItems => prevCartItems + count);
+    setCartItems([...cartItems, count]);
   };
-
   const handleEmptyCart = () => {
-    setCartItems(0);
+    setCartItems([]);
   };
 
   return (
     <>
       <BrowserRouter>
-        <Navbar cartItems={cartItems} handleEmptyCart={handleEmptyCart} />
+        <Navbar>
+          <CartWidget cartItems={cartItems} handleEmptyCart={handleEmptyCart} />
+        </Navbar>
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} handleAddToCart={handleAddToCart} />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'} handleAddToCart={handleAddToCart} />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} />} />
+          <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'} />} />
+          <Route path='/item/:itemId' element={<ItemDetailContainer handleAddToCart={handleAddToCart} />} />
         </Routes>
       </BrowserRouter>
     </>

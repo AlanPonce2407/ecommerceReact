@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList'; 
 import { getProducts, getProductsByCategory } from '../../asyncMock';
 
-const ItemListContainer = ({ greeting, handleAddToCart }) => {
+const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
@@ -36,9 +36,7 @@ const ItemListContainer = ({ greeting, handleAddToCart }) => {
       {isLoading ? (
         <p className="text-center">Cargando...</p>
       ) : (
-        <div className="grid grid-cols-3">
-          <ItemList products={products} handleAddToCart={handleAddToCart} />
-        </div>
+        <ItemList products={products} />
       )}
     </div>
   );

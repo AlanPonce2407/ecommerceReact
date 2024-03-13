@@ -10,7 +10,7 @@ const products = [
   },
   {
     id: "2",
-    name: "samsung s21",
+    name: "Samsung s21",
     price: 800,
     category: "celulares",
     img: "https://images.samsung.com/is/image/samsung/p6pim/ar/galaxy-s21/gallery/ar-galaxy-s21-5g-g991-sm-g991bzalaro-thumb-368338803",

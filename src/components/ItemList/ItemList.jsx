@@ -1,23 +1,35 @@
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemList = ({ products, handleAddToCart }) => {
+const ItemList = ({ products, handleAddToCart, detailView }) => {
+  const handleAddToCartFromParent = (count, productId) => {
+    handleAddToCart(count, productId);
+  };
+
   return (
-    <>
+    <div className="grid grid-cols-3 gap-4">
       {products.map((product) => (
-        <div key={product.id} className="bg-white overflow-hidden shadow rounded-lg m-2">
-          <div className="p-4">
-            <img src={product.img} alt={product.name} className="w-full h-48 object-contain" />
-            <h3 className="flex justify-center text-lg font-medium text-gray-900">{product.name}</h3>
-            <p className=" flex justify-center text-gray-500">{product.price + " U$S"}</p>
-            <p className="flex justify-center text-gray-500">{product.description}</p>
-            <p className="flex justify-center text-gray-500">Unidades en stock: {product.stock}</p>
-            <div className="flex justify-center">
-              <ItemCount stock={product.stock} initialValue={1} onAdd={(count) => handleAddToCart(count)} />
+        <div key={product.id} className="bg-white overflow-hidden shadow rounded-lg">
+          <Link to={`/item/${product.id}`} className="block">
+            <div className="p-4 flex flex-col items-center">
+              <h2 className="text-lg font-semibold">{product.name}</h2>
+              <img src={product.img} alt={product.name} className="w-full" />
+              <p className="text-gray-600 mt-2">${product.price}</p>
+              <p className="text-gray-600">En stock: {product.stock}</p>
             </div>
-          </div>
+          </Link>
+          {detailView && (
+            <div className="p-4">
+              <ItemCount
+                stock={product.stock}
+                initialValue={1}
+                onAdd={(count) => handleAddToCartFromParent(count, product.id)}
+              />
+            </div>
+          )}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
