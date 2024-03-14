@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemList from '../ItemList/ItemList'; 
+import ItemList from '../ItemList/ItemList';
 import { getProducts, getProductsByCategory } from '../../asyncMock';
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({ greeting, handleAddToCart }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-  
+
     const fetchData = async () => {
       try {
         let fetchedProducts;
@@ -26,7 +26,7 @@ const ItemListContainer = ({ greeting }) => {
         setIsLoading(false);
       }
     };
-  
+
     fetchData();
   }, [categoryId]);
 
@@ -36,7 +36,7 @@ const ItemListContainer = ({ greeting }) => {
       {isLoading ? (
         <p className="text-center">Cargando...</p>
       ) : (
-        <ItemList products={products} />
+        <ItemList products={products} handleAddToCart={handleAddToCart} detailView={false} />
       )}
     </div>
   );

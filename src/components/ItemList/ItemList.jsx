@@ -24,6 +24,7 @@ const ItemList = ({ products, handleAddToCart, detailView }) => {
                 stock={product.stock}
                 initialValue={1}
                 onAdd={(count) => handleAddToCartFromParent(count, product.id)}
+                handleAddToCart={handleAddToCart}
               />
             </div>
           )}

@@ -13,6 +13,9 @@ const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
     if (count < stock) {
       setCount(count + 1);
     }
+    if (count == 0) {
+      setCount(count)
+    }
   };
 
   const handleAddToCart = () => {

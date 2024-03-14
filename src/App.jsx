@@ -9,8 +9,9 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (count) => {
-    setCartItems([...cartItems, count]);
+    setCartItems([...cartItems, { count }]);
   };
+
   const handleEmptyCart = () => {
     setCartItems([]);
   };
@@ -18,12 +19,12 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar>
+        <Navbar cartItems={cartItems} handleEmptyCart={handleEmptyCart}>
           <CartWidget cartItems={cartItems} handleEmptyCart={handleEmptyCart} />
         </Navbar>
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'} />} />
+          <Route path='/' element={<ItemListContainer greeting={'Bienvenidos'} handleAddToCart={handleAddToCart} />} />
+          <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'} handleAddToCart={handleAddToCart} />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer handleAddToCart={handleAddToCart} />} />
         </Routes>
       </BrowserRouter>

@@ -16,7 +16,7 @@ const ItemDetailContainer = ({ handleAddToCart }) => {
 
     return (
         <div className="">
-            <h1>Detalle de producto</h1>
+            <h1 className="text-center text-4xl font-bold">Detalle del producto</h1>
             {product && <ItemDetail {...product} handleAddToCart={handleAddToCart} />}
         </div>
     )
