@@ -12,6 +12,8 @@ const Navbar = ({ cartItems, handleEmptyCart }) => {
                     <Link to="/category/celulares" className="text-lg mx-4 md:mx-5">Celulares</Link>
                     <Link to="/category/tablets" className="text-lg mx-4 md:mx-5">Tablets</Link>
                     <Link to="/category/notebooks" className="text-lg mx-4 md:mx-5">Notebooks</Link>
+                    <Link to="/category/consolas" className="text-lg mx-4 md:mx-5">Consolas</Link>
+                    <Link to="/category/televisores" className="text-lg mx-4 md:mx-5">Televisores</Link>
                 </nav>
                 <div className='flex flex-col'>
                     <CartWidget cartItems={cartItems} />

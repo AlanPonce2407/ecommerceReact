@@ -7,7 +7,7 @@ const ItemList = ({ products, handleAddToCart, detailView }) => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-4 gap-4">
       {products.map((product) => (
         <div key={product.id} className="bg-white overflow-hidden shadow rounded-lg">
           <Link to={`/item/${product.id}`} className="block">
