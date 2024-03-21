@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
-import { getProducts, getProductsByCategory } from '../../asyncMock';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebaseConfig';
 
 const ItemListContainer = ({ greeting, handleAddToCart }) => {
   const [products, setProducts] = useState([]);
@@ -13,12 +14,17 @@ const ItemListContainer = ({ greeting, handleAddToCart }) => {
 
     const fetchData = async () => {
       try {
-        let fetchedProducts;
+        const productsCollection = collection(db, 'products');
+        let productsQuery;
+
         if (!categoryId) {
-          fetchedProducts = await getProducts();
+          productsQuery = productsCollection;
         } else {
-          fetchedProducts = await getProductsByCategory(categoryId);
+          productsQuery = query(productsCollection, where('category', '==', categoryId));
         }
+
+        const querySnapshot = await getDocs(productsQuery);
+        const fetchedProducts = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setProducts(fetchedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
