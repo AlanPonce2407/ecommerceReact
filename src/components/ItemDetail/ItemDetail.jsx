@@ -1,11 +1,11 @@
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({ name, category, img, price, description, stock, handleAddToCart }) => {
+const ItemDetail = ({ id, name, category, img, price, description, stock, handleAddToCart }) => {
     const isOutOfStock = stock === 0;
 
     const addToCart = (count) => {
         if (typeof handleAddToCart === 'function') {
-            handleAddToCart(count);
+            handleAddToCart({ item: { id, name, price }, count });
         } else {
             console.error('handleAddToCart is not a function');
         }
