@@ -5,11 +5,14 @@ const ItemDetail = ({ id, name, category, img, price, description, stock, handle
 
     const addToCart = (count) => {
         if (typeof handleAddToCart === 'function') {
-            handleAddToCart({ item: { id, name, price }, count });
+          handleAddToCart(
+            { id, name, price, count, img },
+            count
+          );
         } else {
-            console.error('handleAddToCart is not a function');
+          console.error('handleAddToCart is not a function');
         }
-    };
+      };
 
     return (
         <div className="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-md overflow-hidden p-5">

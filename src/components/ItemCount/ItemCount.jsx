@@ -19,9 +19,12 @@ const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
   };
 
   const handleAddToCart = () => {
+    console.log("handleAddToCart type:", typeof onAdd);
+    console.log("handleAddToCart value:", onAdd);
     if (count > 0) {
       onAdd(count);
     }
+    
   };
 
   return (
