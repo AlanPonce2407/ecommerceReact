@@ -6,7 +6,8 @@ import { db } from "../../services/firebase/firebaseConfig";
 
 const ItemDetailContainer = ({ handleAddToCart }) => {
   const [product, setProduct] = useState(null);
-  const { itemId } = useParams();
+  const { itemId } = useParams(); 
+  console.log(itemId); 
 
   useEffect(() => {
     const fetchProductById = async () => {

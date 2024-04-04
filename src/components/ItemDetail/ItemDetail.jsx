@@ -1,12 +1,12 @@
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({ id, name, category, img, price, description, stock, handleAddToCart }) => {
+const ItemDetail = ({ firebaseId, name, category, img, price, description, stock, handleAddToCart }) => {
     const isOutOfStock = stock === 0;
 
     const addToCart = (count) => {
         if (typeof handleAddToCart === 'function') {
           handleAddToCart(
-            { id, name, price, count, img },
+            { firebaseId, name, price, count, img },
             count
           );
         } else {
