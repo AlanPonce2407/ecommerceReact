@@ -1,3 +1,4 @@
+// ItemDetailContainer.jsx
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
@@ -6,27 +7,33 @@ import { db } from "../../services/firebase/firebaseConfig";
 
 const ItemDetailContainer = ({ handleAddToCart }) => {
   const [product, setProduct] = useState(null);
-  const { itemId } = useParams(); 
-  console.log(itemId); 
+  const [error, setError] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchProductById = async () => {
       try {
-        const productRef = doc(db, "products", itemId);
+        const productRef = doc(db, "products", id);
         const productSnapshot = await getDoc(productRef);
 
         if (productSnapshot.exists()) {
+          console.log("Product data:", productSnapshot.data());
           setProduct({ id: productSnapshot.id, ...productSnapshot.data() });
         } else {
-          console.error("Product not found");
+          setError("Product not found");
         }
       } catch (error) {
         console.error("Error fetching product:", error);
+        setError("An error occurred while fetching the product.");
       }
     };
 
     fetchProductById();
-  }, [itemId]);
+  }, [id]);
+
+  if (error) {
+    return <div className="text-center text-4xl font-bold">{error}</div>;
+  }
 
   return (
     <div className="">

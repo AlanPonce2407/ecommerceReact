@@ -11,20 +11,21 @@ const ItemListContainer = ({ greeting, handleAddToCart }) => {
 
   useEffect(() => {
     setIsLoading(true);
-
+  
     const fetchData = async () => {
       try {
         const productsCollection = collection(db, 'products');
         let productsQuery;
-
+  
         if (!categoryId) {
           productsQuery = productsCollection;
         } else {
           productsQuery = query(productsCollection, where('category', '==', categoryId));
         }
-
+  
         const querySnapshot = await getDocs(productsQuery);
         const fetchedProducts = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        console.log('Fetched products:', fetchedProducts);
         setProducts(fetchedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -32,7 +33,7 @@ const ItemListContainer = ({ greeting, handleAddToCart }) => {
         setIsLoading(false);
       }
     };
-
+  
     fetchData();
   }, [categoryId]);
 
