@@ -12,40 +12,34 @@ const CheckoutPage = () => {
   const [error, setError] = useState('');
   const [orderId, setOrderId] = useState(null);
 
+  const validateEmail = () => {
+    if (email !== confirmEmail) {
+      setError('Las direcciones de email no coinciden');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    console.log('Submitting form...');
-    console.log('Email:', email);
-    console.log('Confirm Email:', confirmEmail);
-    console.log('Cart Items:', cartItems);
-  
-    // Validate email
-    if (email !== confirmEmail) {
-      console.log('Email mismatch');
-      setError('Las direcciones de email no coinciden');
+
+    if (!validateEmail()) {
       return;
-    } else {
-      console.log('Email match');
-      setError('');
     }
-  
-    // Check if cart is not empty
+
     if (cartItems.length === 0) {
-      console.log('Cart is empty');
       setError('El carrito está vacío.');
       return;
-    } else {
-      console.log('Cart is not empty');
     }
-  
+
     try {
       const orderRef = await addDoc(collection(db, 'orders'), {
         name,
         lastName,
         email,
         items: cartItems,
-        total: totalPrice,
+        total: totalPrice || 0, 
         createdAt: serverTimestamp(),
         status: 'generated',
       });
@@ -60,7 +54,7 @@ const CheckoutPage = () => {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-4 text-center">Checkout</h1>
-      {cartItems.length > 0 ? (
+      {cartItems.length > 0 || orderId ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cartItems.map((item, index) => (
@@ -118,7 +112,7 @@ const CheckoutPage = () => {
             </div>
             {error && <div className="text-red-500 mt-2">{error}</div>}
             <button type="submit" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded mt-4">
-              Place Order
+              Confirma tu compra
             </button>
           </form>
         </>
@@ -126,9 +120,9 @@ const CheckoutPage = () => {
         <p className="text-4xl text-gray-600 my-5 text-center">El carrito está vacio.</p>
       )}
       {orderId && (
-        <div className="mt-8 text-center">
-          <p>Order ID: {orderId}</p>
-          <p className="text-green-500">¡Gracias por tu compra!</p>
+        <div className="text-2xl mt-8 text-center">
+          <p>Tu código de compra: {orderId}</p>
+          <p className="text-4xl font-bold text-green-500 mt-8">¡Gracias por tu compra!</p>
         </div>
       )}
     </div>
@@ -136,3 +130,4 @@ const CheckoutPage = () => {
 };
 
 export default CheckoutPage;
+

@@ -32,7 +32,7 @@ const CartView = () => {
             <p className="text-xl font-bold">Total: ${totalPrice}</p>
             {cartItems.length > 0 && (
               <Link to="/checkout" className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
-                Proceed to Checkout
+                Comprar ahora
               </Link>
             )}
           </div>
