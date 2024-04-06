@@ -33,6 +33,7 @@ Local Storage: We decided to store the cart items in the browser's local storage
 Conclusion:
 This e-commerce project demonstrates the use of modern web development technologies and best practices, including React, Firebase, and Tailwind CSS. The application provides a seamless shopping experience for users, allowing them to browse products, manage their cart, and complete purchases. The decisions made throughout the development process aimed to create a scalable, efficient, and user-friendly e-commerce solution.
 
+
 ESPAÑOL
 
 Descripción del Proyecto:
@@ -58,6 +59,7 @@ Almacenamiento Local: Decidimos almacenar los elementos del carrito en el almace
 
 Conclusión:
 Este proyecto de comercio electrónico demuestra el uso de tecnologías modernas de desarrollo web y mejores prácticas, incluyendo React, Firebase y Tailwind CSS. La aplicación proporciona una experiencia de compra fluida para los usuarios, permitiéndoles navegar por productos, gestionar su carrito y completar compras. Las decisiones tomadas a lo largo del proceso de desarrollo tuvieron como objetivo crear una solución de comercio electrónico escalable, eficiente y fácil de usar.
+
 
 PORTUGUÊS
 
@@ -86,7 +88,8 @@ Conclusão:
 Este projeto de comércio eletrônico demonstra o uso de tecnologias modernas de desenvolvimento web e melhores práticas, incluindo React, Firebase e Tailwind CSS. A aplicação oferece uma experiência de compra sem interrupções para os usuários, permitindo que eles naveguem por produtos, gerenciem seus carrinhos e concluam compras. As decisões tomadas ao longo do processo de desenvolvimento visaram criar uma solução de comércio eletrônico escalável, eficiente e amigável ao usuário.
 
 
-FRANÇAIS:
+FRANÇAIS
+
 Description du Projet:
 Cette application de commerce électronique permet aux utilisateurs de parcourir des produits, de les ajouter à leur panier, et de procéder au paiement pour finaliser leur achat. Le projet a été construit en utilisant ReactJS, une bibliothèque JavaScript populaire pour la création d'interfaces utilisateur. L'application utilise la base de données Firebase Firestore pour stocker et gérer les données des produits et des commandes.
 
@@ -109,6 +112,7 @@ Stockage Local: Nous avons décidé de stocker les articles du panier dans le st
 
 Conclusion:
 Ce projet de commerce électronique démontre l'utilisation des technologies de développement web modernes et des meilleures pratiques, y compris React, Firebase et Tailwind CSS. L'application offre une expérience d'achat fluide pour les utilisateurs, leur permettant de parcourir les produits, de gérer leur panier et de finaliser leurs achats. Les décisions prises tout au long du processus de développement visaient à créer une solution de commerce électronique évolutive, efficace et conviviale.
+
 
 日本語
 
