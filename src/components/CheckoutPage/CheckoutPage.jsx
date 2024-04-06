@@ -39,7 +39,7 @@ const CheckoutPage = () => {
         lastName,
         email,
         items: cartItems,
-        total: totalPrice || 0, 
+        total: totalPrice || 0,
         createdAt: serverTimestamp(),
         status: 'generated',
       });
@@ -54,7 +54,7 @@ const CheckoutPage = () => {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-4 text-center">Checkout</h1>
-      {cartItems.length > 0 || orderId ? (
+      {cartItems.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cartItems.map((item, index) => (
@@ -116,18 +116,16 @@ const CheckoutPage = () => {
             </button>
           </form>
         </>
+      ) : orderId ? (
+        <div className="text-2xl mt-8 text-center">
+          <p>Tu código de pedido: {orderId}</p>
+          <p className="text-4xl my-10 font-bold text-green-500">¡Gracias por tu compra!</p>
+        </div>
       ) : (
         <p className="text-4xl text-gray-600 my-5 text-center">El carrito está vacio.</p>
-      )}
-      {orderId && (
-        <div className="text-2xl mt-8 text-center">
-          <p>Tu código de compra: {orderId}</p>
-          <p className="text-4xl font-bold text-green-500 mt-8">¡Gracias por tu compra!</p>
-        </div>
       )}
     </div>
   );
 };
 
 export default CheckoutPage;
-
