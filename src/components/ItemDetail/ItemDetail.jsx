@@ -1,4 +1,3 @@
-// ItemDetail.jsx
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ id, name, category, img, price, description, stock, handleAddToCart }) => {

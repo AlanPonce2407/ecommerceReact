@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
   const [count, setCount] = useState(initialValue);
@@ -23,6 +25,16 @@ const ItemCount = ({ initialValue = 1, stock, onAdd }) => {
     console.log("handleAddToCart value:", onAdd);
     if (count > 0) {
       onAdd(count);
+      toast.success(`El producto se agregó al carrito correctamente!`, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+      })
     }
     
   };

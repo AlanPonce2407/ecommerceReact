@@ -13,16 +13,16 @@ const CartView = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cartItems.map((item, index) => (
+            {cartItems.map((cartItem, index) => (
               <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
                 <div className="flex">
-                  <img src={item.item.img} alt={item.item.name} className="w-48 h-48 object-contain p-1" />
+                  <img src={cartItem.item.img} alt={cartItem.item.name} className="w-48 h-48 object-contain p-1" />
                   <div className="p-4">
-                    <h3 className="text-lg font-semibold mb-2">{item.item.name}</h3>
-                    <p className="text-gray-600 mb-2">Categoría: {item.item.category}</p>
-                    <p className="text-gray-600 mb-2">Precio: ${item.item.price}</p>
-                    <p className="text-gray-600 mb-2">Cantidad: {item.count}</p>
-                    <p className="text-gray-600 font-semibold">Subtotal: ${item.item.price * item.count}</p>
+                    <h3 className="text-lg font-semibold mb-2">{cartItem.item.name}</h3>
+                    <p className="text-gray-600 mb-2">Categoría: {cartItem.item.category}</p>
+                    <p className="text-gray-600 mb-2">Precio: ${cartItem.item.price}</p>
+                    <p className="text-gray-600 mb-2">Cantidad: {cartItem.count}</p>
+                    <p className="text-gray-600 font-semibold">Subtotal: ${cartItem.item.price * cartItem.count}</p>
                   </div>
                 </div>
               </div>

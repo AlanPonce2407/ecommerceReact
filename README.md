@@ -23,6 +23,7 @@ React: The main framework used for building the user interface.
 React Router DOM: Handles the routing and navigation within the application.
 Firebase/Firestore: Provides the database functionality for storing and retrieving product and order data.
 Tailwind CSS: A utility-first CSS framework used for styling the application.
+React-toastify: Used for its ease of use for small notifications
 
 Architectural Decisions:
 React Context API: We used the React Context API to manage the state of the shopping cart, allowing easy access to the cart data throughout the application.
@@ -50,6 +51,7 @@ React: El framework más popular utilizado para construir interfaces de usuario.
 React Router DOM: Maneja el enrutamiento y la navegación dentro de la aplicación.
 Firebase/Firestore: Proporciona la funcionalidad de base de datos para almacenar y recuperar datos de productos y pedidos.
 Tailwind CSS: Un framework CSS de utilidad utilizado para dar estilo a la aplicación.
+React-toastify: Utilizado por su facilidad para manejar notificaciones
 
 Decisiones Arquitectónicas:
 React Context API: Utilizamos la API React Context para gestionar el estado del carrito de compras, lo que permite un fácil acceso a los datos del carrito en toda la aplicación.
@@ -77,6 +79,7 @@ React: O principal framework utilizado para construir a interface do usuário.
 React Router DOM: Gerencia o roteamento e a navegação dentro da aplicação.
 Firebase/Firestore: Fornece a funcionalidade do banco de dados para armazenar e recuperar dados de produto e pedido.
 Tailwind CSS: Um framework CSS de utilidade usado para estilizar a aplicação.
+React-toastify: usado por sua facilidade de tratamento de notificações
 
 Decisões Arquiteturais:
 API de Contexto do React: Utilizamos a API de Contexto do React para gerenciar o estado do carrinho de compras, permitindo fácil acesso aos dados do carrinho ao longo da aplicação.
@@ -104,6 +107,8 @@ React: Le principal framework utilisé pour la création de l'interface utilisat
 React Router DOM: Gère le routage et la navigation dans l'application.
 Firebase/Firestore: Fournit la fonctionnalité de base de données pour stocker et récupérer les données des produits et des commandes.
 Tailwind CSS: Un framework CSS utilitaire utilisé pour styliser l'application.
+React-toastify : Utilisé pour sa facilité de gestion des notifications
+
 Décisions Architecturales:
 API de Contexte de React: Nous avons utilisé l'API de Contexte de React pour gérer l'état du panier d'achat, permettant un accès facile aux données du panier dans toute l'application.
 Firebase Firestore: Nous avons choisi d'utiliser Firebase Firestore comme solution de base de données car il offre une base de données NoSQL évolutive et facile à intégrer, qui répond aux besoins de cette application de commerce électronique.
@@ -130,6 +135,8 @@ React：ユーザーインターフェイスを構築するために使用され
 React Router DOM：アプリケーション内でのルーティングとナビゲーションを処理します。
 Firebase/Firestore：製品データと注文データを保存して取得するためのデータベース機能を提供します。
 Tailwind CSS：アプリケーションのスタイリングに使用されるユーティリティファーストのCSSフレームワーク。
+React-toastify: 通知の処理を容易にするために使用されます。
+
 アーキテクチャ上の決定：
 React Context API：ショッピングカートの状態を管理するためにReact Context APIを使用し、アプリケーション全体でカートデータに簡単にアクセスできるようにしました。
 Firebase Firestore：このeコマースアプリケーションのニーズに適したスケーラブルで統合しやすいNoSQLデータベースを提供するFirebase Firestoreをデータベースソリューションとして選択しました。

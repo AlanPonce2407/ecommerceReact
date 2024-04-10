@@ -10,7 +10,7 @@ const CartWidget = () => {
 
   return (
     <div>
-      <button onClick={() => console.log('Cart clicked')}>
+      <button>
         <img src={cart} className="h-20 w-auto ml-8" />
         Productos: {totalItems} - Total: ${totalPrice}
       </button>
